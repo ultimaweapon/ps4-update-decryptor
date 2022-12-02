@@ -1,0 +1,21 @@
+name: Development Build
+on:
+  push:
+    branches:
+    - main
+concurrency: dev-${{ github.ref }}
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v3
+    - name: Setup Toolchain
+      run: |
+        curl -Ls https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain/releases/download/v0.5.2/v0.5.2.tar.gz | tar -xz
+        echo "OO_PS4_TOOLCHAIN=$(pwd)/OpenOrbis/PS4Toolchain" >> $GITHUB_ENV
+    - name: Run CMake
+      run: cmake -B build
+    - name: Build
+      run: cmake --build build
