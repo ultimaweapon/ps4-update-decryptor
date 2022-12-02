@@ -11,6 +11,8 @@ jobs:
     steps:
     - name: Checkout source
       uses: actions/checkout@v3
+    - name: Install system packages
+      run: sudo apt-get install -y lld
     - name: Setup Toolchain
       run: |
         curl -Ls https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain/releases/download/v0.5.2/v0.5.2.tar.gz | tar -xz
