@@ -6,8 +6,9 @@ This is a PS4 homebrew application for decrypting [PS4UPDATE.PUP](https://www.pl
 
 ### Prerequisites
 
+- Linux
+- CMake 3.19+
 - [OpenOrbis PS4 Toolchain](https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain)
-- CMake 3.6+
 
 ## License
 
